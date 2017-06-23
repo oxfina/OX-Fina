@@ -3,7 +3,7 @@
 ## Specification:
 
 1. ./docs/OX\_Fina.pdf pp 1-7
-2. Discussion/chat with Ravi Kash via Moneo platform
+2. Discussion/Ann
 
 ## Warnings
 
