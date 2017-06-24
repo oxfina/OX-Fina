@@ -1,10 +1,4 @@
 # "OX Token" Smart Contract
-
-## Specification:
-
-1. ./docs/OX\_Fina.pdf pp 1-7
-2. Discussion/Ann
-
 ## Warnings
 
 1. The contract enables any Ethereum address to send Ether and be the recipient
