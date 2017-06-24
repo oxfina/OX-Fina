@@ -1,4 +1,297 @@
 # "OX Token" Smart Contract
+Script started on Thu 22 Jun 2017 06:30:32 PM PDT
+skull@eucalyptus:~/oxtoken/test$ date
+Thu Jun 22 18:30:35 PDT 2017
+skull@eucalyptus:~/oxtoken/test$ ls
+[0m[01;34m.[0m/           03_Ether.js       08_Sales.js  13_Sales.js      18_Transfer.js
+[01;34m..[0m/          04_Ether.js       09_Sales.js  14_Sales.js      19_Transfer.js
+00_Init.js   05_Shutdown.js    10_Sales.js  15_Transfers.js  20_ChangeOwner.js
+01_Ether.js  06_TimeLimits.js  11_Sales.js  16_Bounty.js     result.txt
+02_Ether.js  07_TimeLimits.js  12_Sales.js  17_Transfer.js
+skull@eucalyptus:~/oxtoken/test$ truffle test 00_Init.js 
+Using network 'development'.
+
+EOA[0]:  0x90c45a111f98dc6fc356f6924000533bbe632856
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 0. has correct initial values when created[0m
+      SCA:  0x04eae286f50783e3c8b443251c59b9253d0a82d9
+
+
+[92m [0m[32m 1 passing[0m[90m (21ms)[0m
+
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 01_Ether.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 1. accepts Ether from anyone[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (16ms)[0m
+
+skull@eucalyptus:~/oxtoken/test$ truffle test 02_Ether.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 2. ensures only the owner can withdraw Ether[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (17ms)[0m
+
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 03_Ether.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 3. prevents owner from withdrawing more Ether than it has[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (17ms)[0m
+
+skull@eucalyptus:~/oxtoken/test$ truffle test 04_Ether.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 4. returns Ether balance to owner if destroyed[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (16ms)[0m
+
+skull@eucalyptus:~/oxtoken/test$ truffle test 05_Shutdown.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 5. only the owner can shutdown the contract[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (15ms)[0m
+
+PASS: nonowner failed to shutdown contract
+skull@eucalyptus:~/oxtoken/test$ tuffle test 06_TimeLimits.js 
+tuffle: command not found
+skull@eucalyptus:~/oxtoken/test$ truffle test 06_TimeLimits.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 6. prevents sales before the start[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (19ms)[0m
+
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 07_TimeLimits.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 6. prevents sales after the end[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (15ms)[0m
+
+IsOn: false
+incirc: 285714285
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 08_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 8. calculates 25% bonus correctly[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (21ms)[0m
+
+Receipt: 3750 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 09_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 9. calculates 20% bonus correctly[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (20ms)[0m
+
+Receipt: 3600 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 10_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 10. calculates 15% bonus correctly[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (24ms)[0m
+
+Receipt: 3450 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 11_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 11. calculates 10% bonus correctly[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (21ms)[0m
+
+Receipt: 3300 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 12_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 12. calculates 5% bonus correctly[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (19ms)[0m
+
+Receipt: 3150 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 13_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 13. calculates 0% bonus correctly[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (20ms)[0m
+
+Receipt: 3000 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 14_Sales.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 14. enforces min 100ox purchase limit and max 700,000,000[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (16ms)[0m
+
+buy one iota under minimum
+PASS
+buy minimum
+buy up remaining
+try to get in too late
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 15_Transfers.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 15. No transfer can occur before sale ends[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (20ms)[0m
+
+PASS
+Receipt: 3750 oxen to 0x90c45a111f98dc6fc356f6924000533bbe632856, paid: 1000000000000000000
+skull@eucalyptus:~/oxtoken/test$ truffle test 16_Bounty.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 16. calculates bounty pool correctly when sale ends[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (19ms)[0m
+
+before: 200003750
+oxen: 285719642
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 17_Transfer.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 17. holder can xfer up to full holding[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (17ms)[0m
+
+PASS
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 18_Transfer.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 18. holder cannot xfer more than full holding[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (16ms)[0m
+
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 19_Transfer.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 19. balances/transfers dont work after contract shut down[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (15ms)[0m
+
+PASS
+skull@eucalyptus:~/oxtoken/test$ truffle test 20_ChangeOwner.js 
+Using network 'development'.
+
+
+[0m[0m
+[0m  Contract: OX_TOKEN[0m
+  [32m  ✓[0m[90m 20. only the owner can assign ownership[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (18ms)[0m
+
+Original owner: 0x90c45a111f98dc6fc356f6924000533bbe632856
+New owner: 0x146dfa738c63010e094adb5059766d5831633755
+Caught exception as expected. PASS
+skull@eucalyptus:~/oxtoken/test$ date
+Thu Jun 22 18:33:11 PDT 2017
+skull@eucalyptus:~/oxtoken/test$ ls
+[0m[01;34m.[0m/           03_Ether.js       08_Sales.js  13_Sales.js      18_Transfer.js
+[01;34m..[0m/          04_Ether.js       09_Sales.js  14_Sales.js      19_Transfer.js
+00_Init.js   05_Shutdown.js    10_Sales.js  15_Transfers.js  20_ChangeOwner.js
+01_Ether.js  06_TimeLimits.js  11_Sales.js  16_Bounty.js     result.txt
+02_Ether.js  07_TimeLimits.js  12_Sales.js  17_Transfer.js
+skull@eucalyptus:~/oxtoken/test$ exit
+
+Script done on Thu 22 Jun 2017 06:33:13 PM PDT
+
 ## Warnings
 
 1. The contract enables any Ethereum address to send Ether and be the recipient
